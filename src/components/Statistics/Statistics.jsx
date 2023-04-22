@@ -1,23 +1,19 @@
 import PropTypes from 'prop-types';
-import { Component } from 'react';
-import css from './Statictics.module.css';
+import css from './Statistics.module.css';
 
-export class Statistics extends Component {
-  render() {
-    const { good, neutral, bad, total, positiveFeedback } = this.props;
-    return (
-      <>
-        <ul className={css.stat}>
-          <li>Good: {good}</li>
-          <li>Neutral: {neutral}</li>
-          <li>Bad: {bad}</li>
-          <li>Total: {total}</li>
-          <li>Positive feedback: {positiveFeedback} %</li>
-        </ul>
-      </>
-    );
-  }
-}
+const Statistics = ({ good, neutral, bad, total, positiveFeedback }) => {
+  return (
+    <>
+      <ul className={css.stat}>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+        <li>Total: {total}</li>
+        <li>Positive feedback: {positiveFeedback} %</li>
+      </ul>
+    </>
+  );
+};
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,
@@ -26,3 +22,5 @@ Statistics.propTypes = {
   total: PropTypes.number.isRequired,
   positiveFeedback: PropTypes.number.isRequired,
 };
+
+export default Statistics;
